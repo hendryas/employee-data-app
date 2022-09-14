@@ -1,0 +1,30 @@
+[
+   {
+      "id": 1,
+      "name": "PT.Angkasa Makmur Jaya Tbk.",
+      "type": "IT Consultant",
+      "total_employee": 100,
+      "city": "Batang"
+   },
+   {
+      "id": 2,
+      "name": "PT.Bangou Darat Jaya Tbk.",
+      "type": "Food",
+      "total_employee": 200,
+      "city": "Batang"
+   },
+   {
+      "id": 3,
+      "name": "PT.Angsa Terbang Jaya Tbk.",
+      "type": "IT Consultant",
+      "total_employee": 200,
+      "city": "Batang"
+   },
+   {
+      "id": 4,
+      "name": "PT.Ayam Terbang Jaya Tbk.",
+      "type": "Food",
+      "total_employee": 200,
+      "city": "Batang"
+   }
+]

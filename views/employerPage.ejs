@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title><%= title %> </title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/employees">Employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/employers">Employer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/jobs">Job</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="col-lg">
+        <div class="card m-b-30">
+            <div class="card-body">
+
+                <h4 class="mt-0 header-title">Silahkan buat employer management anda</h4>
+
+                <a href="#" class="btn btn-primary waves-effect waves-light mb-3" data-toggle="modal"
+                    data-target="#newEmployerModal">Tambahkan employer baru</a>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered dt-responsive nowrap"
+                        style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <thead>
+                            <tr class="text-center">
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Total Employee</th>
+                                <th>City</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% no = 1 %>
+
+                            <% dataEmployers.forEach(employer => { %>
+                            <tr class="text-center">
+                                <th scope="row"><%= no %></th>
+                                <td><%= employer.name %></td>
+                                <td><%= employer.type %></td>
+                                <td><%= employer.total_employee %></td>
+                                <td><%= employer.city %></td>
+                                <td>
+                                    <a href="#"><span class="badge badge-success waves-effect waves-light"
+                                            data-toggle="modal"
+                                            data-target="#editEmployerModal<%= employer.id %>">Edit</span></a>
+                                    <a href="/employers/delete/<%= employer.id %>"><span
+                                            class="badge badge-danger waves-effect waves-light ml-3">Delete</span></a>
+                                </td>
+                            </tr>
+                            <%no++ %>
+                            <% })%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end col -->
+
+    <div class="modal fade" id="newEmployerModal" tabindex="-1" aria-labelledby="newEmployerModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newEmployerModalLabel">Tambah Employer Baru</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/employers/create" method="POST">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name"
+                                autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="type">Type</label>
+                            <input type="text" class="form-control" id="type" name="type" placeholder="Type"
+                                autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="total_employee">Total Employer</label>
+                            <input type="number" class="form-control" id="total_employee" name="total_employee"
+                                placeholder="Total Employer" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" id="city" name="city" placeholder="City"
+                                autocomplete="off" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <% dataEmployers.forEach(employer => { %>
+    <div class="modal fade" id="editEmployerModal<%= employer.id %>" tabindex="-1"
+        aria-labelledby="editEmployerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editEmployerModalLabel">Edit Employer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/employers/update/<%= employer.id %>" method="POST">
+                    <input type="hidden" name="id" value="<%= employer.id %>">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name"
+                                autocomplete="off" value="<%= employer.name %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="type">Type</label>
+                            <input type="text" class="form-control" id="type" name="type" placeholder="Type"
+                                autocomplete="off" value="<%= employer.type %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="total_employee">Total Employee</label>
+                            <input type="text" class="form-control" id="total_employee" name="total_employee"
+                                placeholder="Total Employee" autocomplete="off" value="<%= employer.total_employee %>"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" id="city" name="city" placeholder="City"
+                                autocomplete="off" value="<%= employer.city %>" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <% })%>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
+    </script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

@@ -1,0 +1,538 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0",
+      "title": "Management Employees",
+      "contact": {}
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "securityDefinitions": {},
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/": {
+        "get": {
+          "summary": "localhost:3000",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "localhost:3000",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/employees": {
+        "get": {
+          "summary": "localhost:3000/employees",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "localhost:3000/employees",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/jobs": {
+        "get": {
+          "summary": "localhost:3000/jobs",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "localhost:3000/jobs",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/employers": {
+        "get": {
+          "summary": "localhost:3000/employers",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "localhost:3000/employers",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/employees/create": {
+        "post": {
+          "summary": "localhost:3000/employees/create",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "localhost:3000/employees/create",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/localhost%3A3000~1employees~1createrequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/jobs/create": {
+        "post": {
+          "summary": "localhost:3000/jobs/create",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "localhost:3000/jobs/create",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/localhost%3A3000~1jobs~1createrequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/employers/create": {
+        "post": {
+          "summary": "localhost:3000/employers/create",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "localhost:3000/employers/create",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/localhost%3A3000~1employers~1createrequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/employees/delete/1": {
+        "get": {
+          "summary": "localhost:3000/employees/delete/:id",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "localhost:3000/employees/delete/:id",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/jobs/delete/4": {
+        "get": {
+          "summary": "localhost:3000/jobs/delete/:id",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "localhost:3000/jobs/delete/:id",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/employers/delete/4": {
+        "get": {
+          "summary": "localhost:3000/employers/delete/:id",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "localhost:3000/employers/delete/:id",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/employees/update/2": {
+        "post": {
+          "summary": "localhost:3000/employees/update/:id",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "localhost:3000/employees/update/:id",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/localhost%3A3000~1employees~1update~1%3Aidrequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/jobs/update/3": {
+        "post": {
+          "summary": "localhost:3000/jobs/update/:id",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "localhost:3000/jobs/update/:id",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/localhost%3A3000~1jobs~1update~1%3Aidrequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/employers/update/2": {
+        "post": {
+          "summary": "localhost:3000/employers/update/:id",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "localhost:3000/employers/update/:id",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/localhost%3A3000~1employers~1update~1%3Aidrequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "localhost:3000/employees/createrequest": {
+        "title": "localhost:3000/employees/createrequest",
+        "example": {
+          "name": "Udin",
+          "job": "Flutter Developer Expert",
+          "age": 25,
+          "city": "Batang"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "job": {
+            "type": "string"
+          },
+          "age": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "city": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "job",
+          "age",
+          "city"
+        ]
+      },
+      "localhost:3000/jobs/createrequest": {
+        "title": "localhost:3000/jobs/createrequest",
+        "example": {
+          "name": "Web Developer",
+          "category": "programmer",
+          "max_salary": 8000000,
+          "min_salary": 5500000
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "max_salary": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "min_salary": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "name",
+          "category",
+          "max_salary",
+          "min_salary"
+        ]
+      },
+      "localhost:3000/employers/createrequest": {
+        "title": "localhost:3000/employers/createrequest",
+        "example": {
+          "name": "PT.Ayam Terbang Jaya Tbk.",
+          "type": "Food",
+          "total_employee": 200,
+          "city": "Batang"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "total_employee": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "city": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "total_employee",
+          "city"
+        ]
+      },
+      "localhost:3000/employees/update/:idrequest": {
+        "title": "localhost:3000/employees/update/:idrequest",
+        "example": {
+          "name": "Agus",
+          "job": "Flutter Developer Expert",
+          "age": 25,
+          "city": "Batang"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "job": {
+            "type": "string"
+          },
+          "age": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "city": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "job",
+          "age",
+          "city"
+        ]
+      },
+      "localhost:3000/jobs/update/:idrequest": {
+        "title": "localhost:3000/jobs/update/:idrequest",
+        "example": {
+          "name": "Flutter Developer",
+          "category": "programmer",
+          "max_salary": 15000000,
+          "min_salary": 8000000
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "max_salary": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "min_salary": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "name",
+          "category",
+          "max_salary",
+          "min_salary"
+        ]
+      },
+      "localhost:3000/employers/update/:idrequest": {
+        "title": "localhost:3000/employers/update/:idrequest",
+        "example": {
+          "name": "PT.Bangou Darat Jaya Tbk.",
+          "type": "Food",
+          "total_employee": 200,
+          "city": "Batang"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "total_employee": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "city": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "total_employee",
+          "city"
+        ]
+      }
+    },
+    "tags": [
+      {
+        "name": "Misc",
+        "description": ""
+      }
+    ]
+  }
